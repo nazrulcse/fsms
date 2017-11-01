@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :role
+  belongs_to :department
+  belongs_to :site
+  belongs_to :zone
 
   def it_admin
     role.name.downcase == 'it admin'
