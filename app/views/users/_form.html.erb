@@ -1,0 +1,48 @@
+<%= form_for(@user) do |f| %>
+    <div class="row">
+      <div class="field form-group col-sm-6">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :department_id, 'Department' %>
+        <%= f.select :department_id, options_for_select(Department.all.collect { |dp| [dp.name, dp.id] }), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :role_id, 'Role' %>
+        <%= f.select :role_id, options_for_select(User::ROLES), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :zone_id, 'Zone' %>
+        <%= f.select :zone_id, options_for_select(Zone.all.collect { |zone| [zone.title, zone.id] }), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :site_id, 'Site' %>
+        <%= f.select :site_id, options_for_select(Site.all.collect { |site| [site.title, site.id] }), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="actions clearfix text-right">
+      <%= f.submit "Create User", class: 'btn btn-default' %>
+    </div>
+<% end %>
