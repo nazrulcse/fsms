@@ -1,4 +1,4 @@
-<h2>Sites List </h2>
+<h2>Zones List </h2>
 
 <div class="container">
   <div class="row">
@@ -8,20 +8,16 @@
           <thead>
           <tr>
             <th>Title</th>
-            <th>Zone</th>
             <th>Address</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
+            <th>Zone ID</th>
           </tr>
           </thead>
           <tbody>
-          <% @sites.each do |site| %>
+          <% @zones.each do |zone| %>
               <tr>
-                <td><%= site.title %></td>
-                <td><%= site.zone.title if site.zone.present? %></td>
-                <td><%= site.address %></td>
-                <td><%= site.lat %></td>
-                <td><%= site.lng %></td>
+                <td><%= zone.title %></td>
+                <td><%= zone.address %></td>
+                <td><%= zone.id %></td>
               </tr>
           <% end %>
           </tbody>
