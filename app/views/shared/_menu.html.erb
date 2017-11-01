@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav">
         <% if current_user.present? %>
             <li class="active"><a href="#">User</a></li>
-            <li><a href="#">Zone</a></li>
+            <li><%= link_to('Zones', zones_path) %></li>
             <li><%= link_to('Sites', sites_path) %></li>
             <li><a href="#">Survey List</a></li>
             <li><a href="#">Work Order List</a></li>
