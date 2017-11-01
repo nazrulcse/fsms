@@ -12,7 +12,7 @@
 
       <div class="field form-group col-sm-6">
         <%= f.label :role_id, 'Role' %>
-        <%= f.select :role_id, options_for_select(User::ROLES), {}, {class: 'form-control'} %>
+        <%= f.select :role_id, options_for_select(Role.all.collect { |role| [role.name, role.id] }), {}, {class: 'form-control'} %>
       </div>
 
       <div class="field form-group col-sm-6">
@@ -43,6 +43,6 @@
 
 
     <div class="actions clearfix text-right">
-      <%= f.submit "Create User", class: 'btn btn-default' %>
+      <%= f.submit @user.new_record? ? "Create User" : 'Update User', class: 'btn btn-default' %>
     </div>
 <% end %>

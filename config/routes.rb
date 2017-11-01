@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :sites, only: :index
   resources :zones, only: :index
   resources :users
+  post '/users', to: 'users#create'
 end

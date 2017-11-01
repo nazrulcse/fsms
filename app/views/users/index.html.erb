@@ -1,0 +1,37 @@
+<div style="margin-top: 10px;" class="clearfix">
+  <%= link_to 'Create New User', new_user_path, class: 'btn btn-primary pull-right' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>username</th>
+    <th>Department</th>
+    <th>Role</th>
+    <th>Site</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td><%= user.department.name if user.department.present? %></td>
+        <td><%= user.role.name if user.role.present? %></td>
+        <td><%= user.site.title if user.site.present? %></td>
+        <td>
+          <%= link_to edit_user_path(user), class: 'btn btn-warning' do %>
+              <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to user_path(user), method: :delete, class: 'btn btn-danger' do %>
+              <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
