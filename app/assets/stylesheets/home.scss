@@ -16,11 +16,32 @@
   border-bottom-color: #ED6D00 !important;
   a {
     color: #ffffff !important;
+    &:hover {
+      background: #ED6D00 !important;
+    }
   }
   li {
     &.active {
       a {
         background: #ED6D00 !important;
+      }
+      li {
+        a:hover {
+          background: #888888 !important;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background: #888888 !important;
+    padding: 0 !important;
+    li {
+      a {
+        padding: 7px !important;
+        &:hover {
+          background: #ED6D00;
+        }
       }
     }
   }

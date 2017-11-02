@@ -22,10 +22,22 @@
             <li class="<%= active_menu('surveys') %>">
               <%= link_to 'Survey List', surveys_path %>
             </li>
-            <li class="<%= active_menu('work_orders') %>"><a href="#">Work Order List</a></li>
-            <li class="<%= active_menu('work_orders') %>"><a href="#">Submitted Work Order</a></li>
+
             <li class="<%= active_menu('trackings') %>">
               <%= link_to 'Tracking', trackings_path %>
+            </li>
+
+            <li class="dropdown <%= active_menu('work_orders') %>" style="cursor: pointer">
+              <a class="dropdown-toggle" data-toggle="dropdown">Work Order
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to('Work Order List', work_orders_path) %>
+                </li>
+                <li>
+                  <a href="#">Submitted Work Order</a>
+                </li>
+              </ul>
             </li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %>  </li>
         <% else %>

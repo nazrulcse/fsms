@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171102040050) do
 
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "attachmentable_id"
+    t.string "attachmentable_type"
+    t.string "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "checklists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "item_type"
@@ -72,6 +80,22 @@ ActiveRecord::Schema.define(version: 20171102040050) do
     t.integer "site_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "work_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "site_id"
+    t.integer "survey_id"
+    t.integer "technician_id"
+    t.integer "creator"
+    t.string "title"
+    t.string "status"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "submitted", default: false
+    t.boolean "assigned", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "zones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
