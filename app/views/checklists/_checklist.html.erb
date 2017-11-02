@@ -1,0 +1,12 @@
+<tr class="checklist-item-<%= checklist.id %>">
+  <td> <%= checklist.title %> </td>
+  <td> <%= generate_checklist_field(checklist) %> </td>
+  <td>
+    <%= link_to edit_survey_checklist_path(checklist.survey_id, checklist), class: 'btn btn-warning btn-sm', remote: true do %>
+        <i class="fa fa-pencil"></i>
+    <% end %>
+    <%= link_to survey_checklist_path(checklist.survey_id, checklist), class: 'btn btn-danger btn-sm', remote: true, confirm: 'Are you sure?', method: :delete do %>
+        <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

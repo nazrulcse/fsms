@@ -1,0 +1,33 @@
+<%= form_for [@survey, @checklist], remote: true do |f| %>
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Create/Edit Checklist Item</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :item_type, 'Checklist Type' %>
+        <%= f.select :item_type, options_for_select(Checklist::TYPES, f.object.item_type), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :options, 'Checklist Outcome' %>
+        <%= f.text_field :options, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit class: 'btn btn-default' %>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $('#checklist_options').tokenfield()
+    });
+</script>

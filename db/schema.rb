@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101160824) do
+ActiveRecord::Schema.define(version: 20171102040050) do
+
+  create_table "checklists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "item_type"
+    t.text "options"
+    t.integer "survey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -30,6 +39,14 @@ ActiveRecord::Schema.define(version: 20171101160824) do
     t.integer "zone_id"
     t.float "lat", limit: 24
     t.float "lng", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "attachment"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

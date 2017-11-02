@@ -12,4 +12,4 @@ development:
   <<: *default
   database: fsms
   username: root
-  password: root
+  password: password
