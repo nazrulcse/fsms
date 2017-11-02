@@ -35,6 +35,10 @@
               <i class="fa fa-user-plus"></i>
           <% end %>
 
+          <%= link_to work_order_path(work_order), class: 'btn btn-warning', title: 'Show' do %>
+              <i class="fa fa-eye"></i>
+          <% end %>
+
           <%= link_to edit_work_order_path(work_order), class: 'btn btn-warning', title: 'Edit' do %>
               <i class="fa fa-pencil"></i>
           <% end %>

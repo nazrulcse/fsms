@@ -63,6 +63,10 @@ class WorkOrdersController < ApplicationController
     end
   end
 
+  def show
+    @work_order = WorkOrder.find_by_id(params[:id])
+  end
+
   def assign_user
     @work_order = WorkOrder.find_by_id(params[:id])
   end
