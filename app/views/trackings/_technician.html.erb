@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Tracking: <%= technician.name %>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>Name</td>
+        <td><%= technician.name %></td>
+      </tr>
+      <tr>
+        <td>Department</td>
+        <td><%= technician.department.name %></td>
+      </tr>
+
+      <tr>
+        <td>Nearest Zone</td>
+        <td><%= technician.zone.title %></td>
+      </tr>
+
+      <tr>
+        <td>Site</td>
+        <td><%= technician.site.title %></td>
+      </tr>
+
+      <tr>
+        <td>Total Assigned WO</td>
+        <td> 10</td>
+      </tr>
+
+      <tr>
+        <td>Completed WO</td>
+        <td> 5</td>
+      </tr>
+
+      <tr>
+        <td>In Progress WO</td>
+        <td> 3</td>
+      </tr>
+
+      <tr>
+        <td>Failed To Complete</td>
+        <td> 2</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
