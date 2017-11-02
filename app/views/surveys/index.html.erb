@@ -20,10 +20,10 @@
         <td><%= survey.created_at.strftime('%d/%m/%Y') %></td>
         <td><%= survey.checklists.count %></td>
         <td>
-          <%= link_to edit_survey_path(survey), class: 'btn btn-warning btn-sm' do %>
+          <%= link_to edit_survey_path(survey), class: 'btn btn-warning btn-sm', title: 'Edit' do %>
               <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to survey_path(survey), method: :delete, class: 'btn btn-danger btn-sm' do %>
+          <%= link_to survey_path(survey), method: :delete, class: 'btn btn-danger btn-sm', title: 'Delete' do %>
               <i class="fa fa-trash"></i>
           <% end %>
         </td>

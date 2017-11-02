@@ -24,10 +24,10 @@
         <td><%= user.role.name if user.role.present? %></td>
         <td><%= user.site.title if user.site.present? %></td>
         <td>
-          <%= link_to edit_user_path(user), class: 'btn btn-warning' do %>
+          <%= link_to edit_user_path(user), class: 'btn btn-warning', title: 'Edit' do %>
               <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to user_path(user), method: :delete, class: 'btn btn-danger' do %>
+          <%= link_to user_path(user), method: :delete, class: 'btn btn-danger', title: 'Delete' do %>
               <i class="fa fa-trash"></i>
           <% end %>
         </td>
