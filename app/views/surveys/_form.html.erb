@@ -1,0 +1,15 @@
+<%= form_for(@survey) do |f| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="col-sm-6">
+          <div class="actions" style="margin-top: 25px;">
+            <%= f.submit class: 'btn btn-default' %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

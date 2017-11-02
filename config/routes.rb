@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :sites, only: :index
   resources :zones, only: :index
   resources :users
+  resources :surveys do
+    resources :checklists
+  end
   post '/users', to: 'users#create'
 
   resources :work_orders

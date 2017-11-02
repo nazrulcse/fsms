@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 style>Update survey or add checklist</h4>
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
+
+    <h3>
+      Checklist Items
+    </h3>
+    <table class="table survey-checklist">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Outcome Options</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @survey.checklists.each do |checklist| %>
+          <%= render 'checklists/checklist', checklist: checklist %>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to new_survey_checklist_path(@survey), remote: true do %>
+        <i class="fa fa-plus-circle"></i> Add checklist
+    <% end %>
+  </div>
+</div>
+
+<%= render 'checklist_modal' %>
