@@ -1,16 +1,14 @@
+<h4 class="public-header">Work Order Details</h4>
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="public-header">Work Order Details</h4>
-  </div>
   <div class="panel-body">
     <div class="col-sm-4">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 style>Zone Information</h4>
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Zone Information</h4>
         </div>
         <div class="panel-body">
           <table class="table table-striped">
-            <thead>
+            <tbody>
             <tr>
               <th>Title</th>
               <th><%= @work_order.site.zone.title %></th>
@@ -25,18 +23,18 @@
               <th>ID</th>
               <th><%= @work_order.site.zone.id %></th>
             </tr>
-            </thead>
+            </tbody>
           </table>
         </div>
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 style>Site Information</h4>
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Site Information</h4>
         </div>
         <div class="panel-body">
           <table class="table table-striped">
-            <thead>
+            <tbody>
             <tr>
               <th>Title</th>
               <th><%= @work_order.site.title %></th>
@@ -55,7 +53,7 @@
               <th>Longitude</th>
               <th><%= @work_order.site.lng %></th>
             </tr>
-            </thead>
+            </tbody>
           </table>
         </div>
       </div>
@@ -63,11 +61,12 @@
 
     <div class="col-sm-8">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 style>Survey Details</h4>
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Survey Details</h4>
         </div>
         <div class="panel-body">
           <div class="panel-body">
+            <h4> <%= @work_order.survey.title %> </h4>
             <h3>
               Checklist Items
             </h3>
