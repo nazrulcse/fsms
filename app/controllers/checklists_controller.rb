@@ -35,7 +35,8 @@ class ChecklistsController < ApplicationController
   end
 
   def destroy
-
+    checklist = Checklist.find_by_id(params[:id])
+    checklist.destroy
   end
 
   private
