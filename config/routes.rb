@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :surveys do
     resources :checklists
   end
+  resources :trackings, only: [:index]
   post '/users', to: 'users#create'
 
   resources :work_orders do

@@ -3,4 +3,67 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .page-wrapper {
   margin-top: 51px;
+  height: calc(100vh - 96px);
+}
+
+.footer {
+  background: #dfdfdf;
+  padding: 15px 0 0 0;
+}
+
+.navbar-inverse {
+  background: #888888 !important;
+  border-bottom-color: #ED6D00 !important;
+  a {
+    color: #ffffff !important;
+    &:hover {
+      background: #ED6D00 !important;
+    }
+  }
+  li {
+    &.active {
+      a {
+        background: #ED6D00 !important;
+      }
+      li {
+        a:hover {
+          background: #888888 !important;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background: #888888 !important;
+    padding: 0 !important;
+    li {
+      a {
+        padding: 7px !important;
+        &:hover {
+          background: #ED6D00;
+        }
+      }
+    }
+  }
+}
+
+.public-header {
+  padding: 7px;
+  color: #ED6D00;
+  margin: 10px 0 10px 0;
+  font-weight: bold;
+  border-color: #ED6D00;
+  border-width: 1px 1px 1px 10px;
+  border-style: solid;
+}
+
+table {
+  thead {
+    tr {
+      th {
+        background: #ED6D00;
+        color: #fdfdfd;
+      }
+    }
+  }
 }

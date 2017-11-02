@@ -1,4 +1,5 @@
-<div style="margin-top: 10px;" class="clearfix">
+<div style="margin-top: 10px;" class="clearfix public-header">
+  <h4 class="pull-left"> All User List Including IT Admin, Power User, Admin, Technician </h4>
   <%= link_to 'Create New User', new_user_path, class: 'btn btn-primary pull-right' %>
 </div>
 
@@ -9,7 +10,7 @@
     <th>Email</th>
     <th>username</th>
     <th>Department</th>
-    <th>Role</th>
+    <th>Role/Type</th>
     <th>Site</th>
     <th></th>
   </tr>
@@ -24,11 +25,14 @@
         <td><%= user.role.name if user.role.present? %></td>
         <td><%= user.site.title if user.site.present? %></td>
         <td>
-          <%= link_to edit_user_path(user), class: 'btn btn-warning', title: 'Edit' do %>
+          <%= link_to edit_user_path(user), class: 'btn btn-warning btn-sm', title: 'Edit' do %>
               <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to user_path(user), method: :delete, class: 'btn btn-danger', title: 'Delete' do %>
+          <%= link_to user_path(user), method: :delete, class: 'btn btn-danger btn-sm', title: 'Delete' do %>
               <i class="fa fa-trash"></i>
+          <% end %>
+          <%= link_to trackings_path(user_id: user), class: 'btn btn-primary btn-sm', title: 'User Tracking Details', target: '_blank' do %>
+              <i class="fa fa-map-marker"></i>
           <% end %>
         </td>
       </tr>

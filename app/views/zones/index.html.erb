@@ -1,28 +1,27 @@
-<h2>Zones List </h2>
+<h2 class="public-header">Zones List </h2>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th>Title</th>
-            <th>Address</th>
-            <th>Zone ID</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @zones.each do |zone| %>
-              <tr>
-                <td><%= zone.title %></td>
-                <td><%= zone.address %></td>
-                <td><%= zone.id %></td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div><!--end of .table-responsive-->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Address</th>
+          <th>Zone ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @zones.each do |zone| %>
+            <tr>
+              <td><%= zone.title %></td>
+              <td><%= zone.address %></td>
+              <td><%= zone.id %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
+    <!--end of .table-responsive-->
   </div>
 </div>

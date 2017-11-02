@@ -1,0 +1,52 @@
+<h3 class="public-header"> Tracking Technician </h3>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div id="map-canvas" style="width:100%; min-height:400px"></div>
+  </div>
+
+  <div class="col-sm-6">
+    <%= render 'trackings/technician', technician: @technician %>
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCip4aOkkoKRK2V-MXTpHi988qs0ypWTzo"></script>
+<script type="text/javascript">
+    $(function () {
+
+        initialize()
+    });
+
+    window.lat = 23.777176;
+    window.lng = 90.399452;
+    var map;
+    var mark;
+    var lineCoords = [];
+
+    function initialize() {
+        map = new google.maps.Map(document.getElementById('map-canvas'), {center: {lat: lat, lng: lng}, zoom: 12});
+        mark = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
+        lineCoords.push(new google.maps.LatLng(window.lat, window.lng));
+    }
+
+    var redraw = function (payload) {
+        lat = payload.message.lat;
+        lng = payload.message.lng;
+        map.setCenter({lat: lat, lng: lng, alt: 0});
+        mark.setPosition({lat: lat, lng: lng, alt: 0});
+        lineCoords.push(new google.maps.LatLng(lat, lng));
+        var lineCoordinatesPath = new google.maps.Polyline({
+            path: lineCoords,
+            geodesic: true,
+            strokeColor: '#ED6D00'
+        });
+
+        lineCoordinatesPath.setMap(map);
+    };
+
+    setInterval(function () {
+        payload = {message: {lat: window.lat + 0.0001, lng: window.lng + 0.0001}};
+        redraw(payload);
+    }, 3000);
+
+</script>

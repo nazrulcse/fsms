@@ -1,32 +1,31 @@
-<h2>Sites List </h2>
+<h2 class="public-header">Sites List </h2>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th>Title</th>
-            <th>Zone</th>
-            <th>Address</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @sites.each do |site| %>
-              <tr>
-                <td><%= site.title %></td>
-                <td><%= site.zone.title if site.zone.present? %></td>
-                <td><%= site.address %></td>
-                <td><%= site.lat %></td>
-                <td><%= site.lng %></td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div><!--end of .table-responsive-->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Zone</th>
+          <th>Address</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @sites.each do |site| %>
+            <tr>
+              <td><%= site.title %></td>
+              <td><%= site.zone.title if site.zone.present? %></td>
+              <td><%= site.address %></td>
+              <td><%= site.lat %></td>
+              <td><%= site.lng %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
+    <!--end of .table-responsive-->
   </div>
 </div>
