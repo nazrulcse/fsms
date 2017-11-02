@@ -9,6 +9,8 @@ class User < ApplicationRecord
   belongs_to :department
   belongs_to :site
   belongs_to :zone
+  has_many :assigned_work_orders, class_name: 'WorkOrder', foreign_key: 'technician_id'
+  has_many :created_work_orders, class_name: 'WorkOrder', foreign_key: 'creator'
 
   def it_admin
     role.name.downcase == 'it admin'

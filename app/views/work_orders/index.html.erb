@@ -1,0 +1,43 @@
+<div style="margin-top: 10px;" class="clearfix">
+  <%= link_to 'Create Work Order', new_work_order_path, class: 'btn btn-primary pull-right' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Site</th>
+    <th>Survey</th>
+    <th>Assign to</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Creator</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @work_orders.each do |work_order| %>
+      <tr>
+        <td><%= work_order.title %></td>
+        <td><%= work_order.description %></td>
+        <td><%= work_order.site.title if work_order.site.present? %></td>
+        <td><%= work_order.survey_id  %></td>
+        <td><%= work_order.technician.name if work_order.technician.present? %></td>
+        <td><%= work_order.start_date %></td>
+        <td><%= work_order.end_date %></td>
+        <td><%= work_order.creator.name %></td>
+        <td><%= work_order.status %></td>
+        <td>
+          <%= link_to edit_work_order_path(work_order), class: 'btn btn-warning' do %>
+              <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to work_order_path(work_order), method: :delete, class: 'btn btn-danger' do %>
+              <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

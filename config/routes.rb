@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :zones, only: :index
   resources :users
   post '/users', to: 'users#create'
+
+  resources :work_orders
 end

@@ -16,7 +16,7 @@
             <li><%= link_to('Zones', zones_path) %></li>
             <li><%= link_to('Sites', sites_path) %></li>
             <li><a href="#">Survey List</a></li>
-            <li><a href="#">Work Order List</a></li>
+            <li><%= link_to('Work Order List', work_orders_path) %></li>
             <li><a href="#">Submitted Work Order</a></li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %>  </li>
         <% else %>

@@ -1,0 +1,70 @@
+<%= form_for(@work_order, :html => { :multipart => true }) do |f| %>
+    <div class="row">
+      <div class="field form-group col-sm-6">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :site_id, 'Site' %>
+        <%= f.select :site_id, options_for_select(Site.all.collect { |site| [site.title, site.id] }), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-12">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :survey_id, 'Survey' %>
+        <%= f.text_field :survey_id, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :technician_id, 'Technician' %>
+        <%= f.select :technician_id, options_for_select(User.all.collect { |user| [user.name, user.id] }), {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, class: 'form-control datepicker' %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <%= f.label :end_date %>
+        <%= f.text_field :end_date, class: 'form-control datepicker' %>
+      </div>
+      <div class="col-sm-12">
+        <% unless (@work_order.new_record?) %>
+            <% if @work_order.attachments.present? %>
+                <div class="listing-image-thumbnail-stripe slider-nav-thumbnails listing_attachments" id="thumbnail-stripe">
+                  <% @work_order.attachments.each do |att| %>
+                      <div class="col-sm-1">
+                        <%= image_tag att.attachment, style: 'width: 60px' %>
+                      </div>
+                  <% end %>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+
+      <div class="field form-group col-sm-6">
+        <label class="btn btn-primary" for="my-file-selector">
+          <input id="my-file-selector" type="file" multiple="multiple"name="[image][]" style="display:none;">
+          Upload attachment
+        </label>
+      </div>
+    </div>
+
+
+
+    <div class="actions clearfix text-right">
+      <%= f.submit @work_order.new_record? ? "Create Work Worder" : 'Update Work Worder', class: 'btn btn-default' %>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+</script>
