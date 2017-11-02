@@ -1,5 +1,5 @@
 <%= form_for(@work_order) do |f| %>
-    <% User.all.each do |user| %>
+    <% get_technician.each do |user| %>
         <%= f.radio_button :technician_id, user.id %> <%= user.name %><br/>
     <% end %>
     <div class="modal-footer">

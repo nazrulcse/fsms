@@ -26,4 +26,9 @@ module ApplicationHelper
   def active_menu(ct_name)
     controller_name == ct_name ? 'active' : ''
   end
+
+  def get_technician
+    role = Role.where(name: 'Technician').first
+    role.users
+  end
 end
