@@ -14,7 +14,7 @@
     <th>End Date</th>
     <th>Creator</th>
     <th>Status</th>
-    <th></th>
+    <th>Action</th>
   </tr>
   </thead>
   <tbody>
@@ -30,10 +30,15 @@
         <td><%= work_order.creator.name %></td>
         <td><%= work_order.status %></td>
         <td>
-          <%= link_to edit_work_order_path(work_order), class: 'btn btn-warning' do %>
+
+          <%= link_to assign_user_work_order_path(work_order), remote: true, class: 'btn btn-primary', title: "#{work_order.technician.present? ? 'Reassign' : 'Assign'}" do %>
+              <i class="fa fa-user-plus"></i>
+          <% end %>
+
+          <%= link_to edit_work_order_path(work_order), class: 'btn btn-warning', title: 'Edit' do %>
               <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to work_order_path(work_order), method: :delete, class: 'btn btn-danger' do %>
+          <%= link_to work_order_path(work_order), method: :delete, class: 'btn btn-danger', title: 'Delete' do %>
               <i class="fa fa-trash"></i>
           <% end %>
         </td>
@@ -41,3 +46,7 @@
   <% end %>
   </tbody>
 </table>
+
+
+<!-- Modal -->
+<%= render 'assign_user' %>

@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   end
   post '/users', to: 'users#create'
 
-  resources :work_orders
+  resources :work_orders do
+    get 'assign_user', on: :member
+  end
 end
