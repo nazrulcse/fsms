@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey.new(survey_params)
+    @survey.user_id = current_user.id
     if @survey.save
       redirect_to edit_survey_path(@survey)
     else
@@ -21,7 +22,9 @@ class SurveysController < ApplicationController
   end
 
   def destroy
-
+    survey = Survey.find_by_id(params[:id])
+    survey.destroy
+    redirect_to surveys_path
   end
 
   private
