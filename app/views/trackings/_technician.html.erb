@@ -11,17 +11,17 @@
       </tr>
       <tr>
         <td>Department</td>
-        <td><%= technician.department.name %></td>
+        <td><%= technician.department.name if technician.department %></td>
       </tr>
 
       <tr>
         <td>Nearest Zone</td>
-        <td><%= technician.zone.title %></td>
+        <td><%= technician.zone.title if technician.zone %></td>
       </tr>
 
       <tr>
         <td>Site</td>
-        <td><%= technician.site.title %></td>
+        <td><%= technician.site.title if technician.site %></td>
       </tr>
 
       <tr>

@@ -6,7 +6,7 @@
   </div>
 
   <div class="col-sm-6">
-    <%= render 'trackings/technician', technician: @technician %>
+    <%= render 'trackings/technician', technician: @technician if @technician.present? %>
   </div>
 </div>
 

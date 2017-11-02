@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .page-wrapper {
   margin-top: 51px;
-  height: calc(100vh - 96px);
+  min-height: calc(100vh - 96px);
 }
 
 .footer {
