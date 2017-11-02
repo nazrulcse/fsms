@@ -14,7 +14,7 @@ module ApplicationHelper
     elsif checklist.item_type.downcase == 'multiple choice'
       html = "<div class='options-multiple-choice'>"
       checklist.options.split(',').each do |op|
-        html += check_box_tag 'check[]', op, id: "check_#{op.split.join}"
+        html += check_box_tag 'check[]', op, false, id: "check_#{op.split.join}"
         html += "<label for='check_#{op.split.join}'>#{op}</label>"
       end
       raw(html + "</div>")

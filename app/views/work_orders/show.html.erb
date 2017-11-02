@@ -1,0 +1,95 @@
+<h4 class="public-header">Work Order Details</h4>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Zone Information</h4>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th><%= @work_order.site.zone.title %></th>
+            </tr>
+
+            <tr>
+              <th>Address</th>
+              <th><%= @work_order.site.zone.address %></th>
+            </tr>
+
+            <tr>
+              <th>ID</th>
+              <th><%= @work_order.site.zone.id %></th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Site Information</h4>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th><%= @work_order.site.title %></th>
+            </tr>
+
+            <tr>
+              <th>Address</th>
+              <th><%= @work_order.site.address %></th>
+            </tr>
+
+            <tr>
+              <th>Latitude</th>
+              <th><%= @work_order.site.lat %></th>
+            </tr>
+            <tr>
+              <th>Longitude</th>
+              <th><%= @work_order.site.lng %></th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="panel panel-default">
+        <div class="panel-headingx">
+          <h4 class="public-header" style="margin: 0">Survey Details</h4>
+        </div>
+        <div class="panel-body">
+          <div class="panel-body">
+            <h4> <%= @work_order.survey.title %> </h4>
+            <h3>
+              Checklist Items
+            </h3>
+            <table class="table survey-checklist">
+              <thead>
+              <tr>
+                <th>Title</th>
+                <th>Outcome Options</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @work_order.survey.checklists.each do |checklist| %>
+                  <tr class="checklist-item-<%= checklist.id %>">
+                    <td> <%= checklist.title %> </td>
+                    <td> <%= generate_checklist_field(checklist) %> </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
